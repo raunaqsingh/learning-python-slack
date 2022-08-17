@@ -1,6 +1,9 @@
 # abstract-dev
 Slack app development for onboarding
 
+### About
+Slack app for onboarding. Automates reminders, tips, and tricks for new team members. Operators set content and release schedule that is dished out in bite sizes via the app's automated cadence.
+
 ### To run
 1. Navigate to root directory
 ```cd ~/Abstract/abstract-dev```
