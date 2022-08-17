@@ -20,4 +20,5 @@ and update the request URL in [Event Subscriptions](https://api.slack.com/apps/A
 - [Slack API Event types](https://api.slack.com/events)
 - [Builing a Slack app](https://api.slack.com/start/building)
 - [Block kit builder](https://api.slack.com/block-kit-builder)
+- [Message scheduling](https://api.slack.com/messaging/scheduling)
 - [Post messages on a schedule](https://api.slack.com/tutorials/tracks/scheduling-messages)
