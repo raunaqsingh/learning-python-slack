@@ -8,7 +8,7 @@ Slack app development for onboarding
 ```source .venv/bin/activate```
 3. Start ngrok
 ```ngrok http 3000```
-and update the request URL in [Event Subscriptions](https://api.slack.com/apps/A03TWDCUM2M/event-subscriptions?) with the new ngrok URl
+and update the request URL in [Event Subscriptions](https://api.slack.com/apps/A03TWDCUM2M/event-subscriptions?) with the new ngrok URL
 4. Run the app
 ```python3 app.py```
 
