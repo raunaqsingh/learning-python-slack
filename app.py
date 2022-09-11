@@ -4,7 +4,7 @@ import os
 from slack_bolt import App
 from slack_sdk import WebClient
 
-from scheduleChatMessage import scheduleChatMessage
+from schedule_chat_message import scheduleChatMessage
 
 # WebClient instantiates a client that can call API methods
 # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
