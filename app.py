@@ -1,10 +1,10 @@
-from datetime import datetime
 import logging
 import os
 # Use the package we installed
 from slack_bolt import App
 from slack_sdk import WebClient
-from slack_sdk.errors import SlackApiError
+
+from scheduleChatMessage import scheduleChatMessage
 
 # WebClient instantiates a client that can call API methods
 # When using Bolt, you can use either `app.client` or the `client` passed to listeners.
@@ -47,10 +47,6 @@ def update_home_tab(client, event, logger):
   except Exception as e:
     logger.error(f"Error publishing home tab: {e}")
 
-@app.message("knock knock")
-def ask_who(message, say):
-    say("_Who's there?_")
-
 # When a user joins the workspace, send a message in a predefined channel asking them to introduce themselves
 @app.event("team_join")
 def ask_for_introduction(event, say):
@@ -58,25 +54,8 @@ def ask_for_introduction(event, say):
     text = f"Welcome to the team, <@{user_id}>! 🎉"
     say(text=text)
 
-# Schedule a message to be sent to a #playground at 3pm today
-
-# Create a timestamp for today at 3:00pm ET
-today = datetime.today()
-today_3pm = today.replace(hour=15, minute=2, second=0, microsecond=0)
-schedule_timestamp = today_3pm.timestamp()
-
-try:
-    # Call the chat.scheduleMessage method using the WebClient
-    result = client.chat_scheduleMessage(
-        channel="D03U7HRJWNL",
-        text="Looking towards the future",
-        post_at=schedule_timestamp
-    )
-    # Log the result
-    logger.info(result)
-
-except SlackApiError as e:
-    logger.error("Error scheduling message: {}".format(e))
+# Schedule a message to be sent to the user
+scheduleChatMessage()
 
 # Start your app
 if __name__ == "__main__":
