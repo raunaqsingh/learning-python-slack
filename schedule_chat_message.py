@@ -1,17 +1,19 @@
-from datetime import datetime, timedelta
 import logging
 import os
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+import settings
 
 from list_of_messages import getMessages
 
 client = WebClient(token=os.environ.get("SLACK_BOT_TOKEN"))
 logger = logging.getLogger(__name__)
 
-def scheduleChatMessage():
+def scheduleChatMessages():
 
-    user_id = "U03TL7WN9T6"
+    user = client.users_identity(token=settings.USER_TOKEN)
+    user_id = user["user"]["id"]
+
     list_of_messages = getMessages()
 
     try:
